@@ -22,36 +22,53 @@
 
         h1 {
             text-align: center;
-            margin-bottom: 20px;
             color: #1DA1F2;
         }
 
         .bio {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
-        .bio p {
+        /* ONGLET */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .tab-button {
+            padding: 12px 20px;
+            border: none;
+            background-color: #e0e0e0;
+            cursor: pointer;
             font-size: 16px;
-            line-height: 1.5;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .tab-button.active {
+            background-color: #1DA1F2;
+            color: white;
+            font-weight: bold;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
         }
 
         h2 {
-            margin-top: 60px;
-            padding-bottom: 10px;
+            margin-bottom: 20px;
             border-bottom: 3px solid #ddd;
+            padding-bottom: 10px;
             display: flex;
-            align-items: center;
             gap: 10px;
-            font-size: 20px;
-        }
-
-        h2 span.icon {
-            font-size: 24px;
-        }
-
-        .tweet-section {
-            margin-bottom: 40px;
+            align-items: center;
         }
 
         footer {
@@ -69,21 +86,25 @@
     <h1>@MathouTheOne sur X</h1>
 
     <div class="bio">
-        <p><strong>Mathieu Garcia</strong></p>
+        <p><strong>MathouTheOne</strong></p>
         <p>Étudiant en STAPS – Management du Sport<br>
         Passionné de Football ⚽ et du SM Caen 🔴🔵</p>
-        <p>Portfolio regroupant mes tweets les plus intéressants et travaillés. Pour voir d'autres contenus avec des tournois et tweets plus personnels : @MathouTheOne sur X !</p>
+        <p>Portfolio de tweets orienté journalisme sportif.</p>
     </div>
 
-    <!-- SECTION 1 : THREAD SMC -->
-    <div class="tweet-section">
-        <h2><span class="icon">🧵</span> THREAD SMC</h2>
+    <!-- BOUTONS ONGLET -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab('thread')">🧵 THREAD SMC</button>
+        <button class="tab-button" onclick="openTab('analyses')">📊 Notes & Analyses</button>
+    </div>
 
-        <!-- NOUVEAU TWEET (EN PREMIER) -->
+    <!-- ONGLET 1 -->
+    <div id="thread" class="tab-content active">
+        <h2>🧵 THREAD SMC</h2>
+
         <blockquote class="twitter-tweet">
             <a href="https://twitter.com/i/status/2009262502480159094"></a>
         </blockquote>
-
         <blockquote class="twitter-tweet">
             <a href="https://twitter.com/i/status/1960632512876605827"></a>
         </blockquote>
@@ -98,9 +119,9 @@
         </blockquote>
     </div>
 
-    <!-- SECTION 2 : Notes et Analyses SMC -->
-    <div class="tweet-section">
-        <h2><span class="icon">📊</span> Notes et Analyses SMC</h2>
+    <!-- ONGLET 2 -->
+    <div id="analyses" class="tab-content">
+        <h2>📊 Notes & Analyses SMC</h2>
 
         <blockquote class="twitter-tweet">
             <a href="https://twitter.com/i/status/1981049290672992400"></a>
@@ -119,7 +140,22 @@
     © MathouTheOne — Portfolio Tweets SMC
 </footer>
 
+<script>
+    function openTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        document.querySelectorAll('.tab-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        document.getElementById(tabId).classList.add('active');
+        event.target.classList.add('active');
+    }
+</script>
+
 <script async src="https://platform.twitter.com/widgets.js"></script>
 
 </body>
-</html> 
+</html>
