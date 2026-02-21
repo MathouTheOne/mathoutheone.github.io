@@ -2,56 +2,69 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>MathouTheOne | Portfolio Tweets SMC</title>
+    <title>MathouTheOne | Portfolio Journalistique</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f2f5;
             margin: 0;
             padding: 0;
         }
 
+        /* HEADER */
+        .header {
+            background: linear-gradient(90deg, #0a1f44, #1d3557);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .header p {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        /* CONTAINER */
         .container {
-            max-width: 950px;
-            margin: auto;
+            max-width: 1000px;
+            margin: 40px auto;
             padding: 20px;
-            background: white;
-        }
-
-        h1 {
-            text-align: center;
-            color: #1DA1F2;
-        }
-
-        .bio {
-            text-align: center;
-            margin-bottom: 40px;
         }
 
         /* ONGLET */
         .tabs {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
             margin-bottom: 40px;
         }
 
         .tab-button {
-            padding: 12px 20px;
+            padding: 12px 22px;
             border: none;
-            background-color: #e0e0e0;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 16px;
-            border-radius: 5px;
-            transition: 0.3s;
+            font-weight: bold;
+            background-color: #e0e0e0;
+            transition: 0.3s ease;
         }
 
         .tab-button.active {
-            background-color: #1DA1F2;
+            background-color: #e63946;
             color: white;
-            font-weight: bold;
+        }
+
+        .tab-button:hover {
+            background-color: #c1121f;
+            color: white;
         }
 
         .tab-content {
@@ -62,98 +75,142 @@
             display: block;
         }
 
-        h2 {
-            margin-bottom: 20px;
-            border-bottom: 3px solid #ddd;
-            padding-bottom: 10px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
+        /* CARTE TWEET */
+        .tweet-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tweet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
 
         footer {
             text-align: center;
+            padding: 30px;
+            background: #0a1f44;
+            color: white;
             margin-top: 60px;
             font-size: 14px;
-            color: gray;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
-
 <body>
 
+<div class="header">
+    <h1>⚽ Portfolio Journalistique</h1>
+    <p>Threads & Analyses — Spécialité SM Caen</p>
+</div>
+
 <div class="container">
-    <h1>@MathouTheOne sur X</h1>
 
-    <div class="bio">
-        <p><strong>MathouTheOne</strong></p>
-        <p>Étudiant en STAPS – Management du Sport<br>
-        Passionné de Football ⚽ et du SM Caen 🔴🔵</p>
-        <p>Portfolio de mes tweets de journaliste en herbe</p>
-    </div>
-
-    <!-- BOUTONS ONGLET -->
+    <!-- ONGLET -->
     <div class="tabs">
-        <button class="tab-button active" onclick="openTab('thread')">🧵 THREAD SMC</button>
-        <button class="tab-button" onclick="openTab('analyses')">📊 Notes & Analyses</button>
+        <button class="tab-button active" onclick="openTab('thread', this)">🧵 THREADS</button>
+        <button class="tab-button" onclick="openTab('analyses', this)">📊 ANALYSES</button>
     </div>
 
-    <!-- ONGLET 1 -->
+    <!-- THREADS -->
     <div id="thread" class="tab-content active">
-        <h2>🧵 THREAD SMC</h2>
 
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/2018053342795120687"></a>
-        </blockquote>
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/2009262502480159094"></a>
-        </blockquote>
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/1960632512876605827"></a>
-        </blockquote>
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/2006314242522182065"></a>
-        </blockquote>
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/1913897344396833263"></a>
-        </blockquote>
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/1878496835716755612"></a>
-        </blockquote>
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/2024386119102525824"></a>
+            </blockquote>
+        </div>
+
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/2009262502480159094"></a>
+            </blockquote>
+        </div>
+
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/1960632512876605827"></a>
+            </blockquote>
+        </div>
+
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/2006314242522182065"></a>
+            </blockquote>
+        </div>
+
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/1913897344396833263"></a>
+            </blockquote>
+        </div>
+
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/1878496835716755612"></a>
+            </blockquote>
+        </div>
+
     </div>
 
-    <!-- ONGLET 2 -->
+    <!-- ANALYSES -->
     <div id="analyses" class="tab-content">
-        <h2>📊 Notes & Analyses SMC</h2>
 
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/2017340944236921302"></a>
-        </blockquote>
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/2014824851211448613"></a>
-        </blockquote>
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/2012269205572166002"></a>
-        </blockquote>
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/1981049290672992400"></a>
-        </blockquote>
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/1961731994494063021"></a>
-        </blockquote>
-        <blockquote class="twitter-tweet">
-            <a href="https://twitter.com/i/status/1871550974072086590"></a>
-        </blockquote>
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/2024949562725605861"></a>
+            </blockquote>
+        </div>
+
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/2022414962669609465"></a>
+            </blockquote>
+        </div>
+
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/2019896022223241423"></a>
+            </blockquote>
+        </div>
+
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/1981049290672992400"></a>
+            </blockquote>
+        </div>
+
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/1961731994494063021"></a>
+            </blockquote>
+        </div>
+
+        <div class="tweet-card">
+            <blockquote class="twitter-tweet">
+                <a href="https://twitter.com/i/status/1871550974072086590"></a>
+            </blockquote>
+        </div>
+
     </div>
 
 </div>
 
 <footer>
-    © MathouTheOne — Portfolio Tweets SMC
+    © MathouTheOne — Portfolio Journalistique Sportif
 </footer>
 
 <script>
-    function openTab(tabId) {
+    function openTab(tabId, element) {
         document.querySelectorAll('.tab-content').forEach(tab => {
             tab.classList.remove('active');
         });
@@ -163,7 +220,7 @@
         });
 
         document.getElementById(tabId).classList.add('active');
-        event.target.classList.add('active');
+        element.classList.add('active');
     }
 </script>
 
