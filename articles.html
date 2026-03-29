@@ -1,3 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Articles Ouest-France | Mathieu Garcia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #0a1f44, #1d3557);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .header p {
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .article-card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .article-card h2 {
+            margin-top: 0;
+            color: #0a1f44;
+            font-size: 22px;
+        }
+
+        .meta {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .article-card p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background-color: #e63946;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #c1121f;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            text-decoration: none;
+            color: #1d3557;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #0a1f44;
+            color: white;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📰 Mes articles Ouest-France</h1>
+    <p>Mes articles sportifs référencés pour Ouest-France</p>
+</div>
+
 <div class="container">
 
     <!-- ARTICLE 1 -->
@@ -26,4 +142,39 @@
         </a>
     </div>
 
-    <!-- ARTICLE
+    <!-- ARTICLE 3 -->
+    <div class="article-card">
+        <h2>JS Cherbourg : « C’est une page qui se tourne »</h2>
+        <div class="meta">Handball — JS Cherbourg</div>
+        <p>
+            Thomas Loppy évoque son départ vers Saran et revient sur ce que représente cette transition dans son parcours. 
+            Un témoignage qui marque un tournant pour le club et pour le joueur.
+        </p>
+        <a class="read-more" href="https://www.ouest-france.fr/sport/handball/js-cherbourg/js-cherbourg-cest-une-page-qui-se-tourne-les-premiers-mots-de-thomas-loppy-sur-son-depart-a-saran-04191dde-0cb0-11f1-b839-4d59eb76df60" target="_blank">
+            Lire sur Ouest-France →
+        </a>
+    </div>
+
+    <!-- ARTICLE 4 -->
+    <div class="article-card">
+        <h2>R1 : « Au-delà de nos attentes » — AS Cherbourg</h2>
+        <div class="meta">Football — Régionale 1</div>
+        <p>
+            Olivier Liot, président de l’AS Cherbourg, revient sur un début de saison prometteur. 
+            Une dynamique sportive qui dépasse les projections initiales du club.
+        </p>
+        <a class="read-more" href="https://www.ouest-france.fr/sport/football/cherbourg/r1-cest-au-dela-de-nos-attentes-olivier-liot-president-de-las-cherbourg-evoque-le-debut-de-saison-de-son-club-35480eaa-0e37-11f1-b929-abb85d5fd4cd" target="_blank">
+            Lire sur Ouest-France →
+        </a>
+    </div>
+
+    <a class="back-link" href="index.html">← Retour au portfolio</a>
+
+</div>
+
+<footer>
+    © MathouTheOne — Portfolio Journalistique Sportif
+</footer>
+
+</body>
+</html>
