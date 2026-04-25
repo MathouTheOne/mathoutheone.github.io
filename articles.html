@@ -1,169 +1,185 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Articles Ouest-France | Mathieu Garcia</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Articles Ouest-France | Mathieu Garcia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+body {
+    font-family: 'Segoe UI', Arial;
+    margin: 0;
+    background: #f4f6f8;
+}
 
-        .header {
-            background: linear-gradient(90deg, #0a1f44, #1d3557);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
+/* HEADER */
+.header {
+    background: linear-gradient(90deg, #0a1f44, #1d3557);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-        }
+/* UNE */
+.hero {
+    position: relative;
+    max-width: 1100px;
+    margin: 30px auto;
+    border-radius: 12px;
+    overflow: hidden;
+}
 
-        .article-card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: 0.2s;
-        }
+.hero img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
 
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        }
+.hero-text {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    width: 100%;
+    padding: 20px;
+}
 
-        .article-card h2 {
-            margin-top: 0;
-            color: #0a1f44;
-        }
+.hero-text h2 {
+    margin: 0;
+    font-size: 28px;
+}
 
-        .meta {
-            font-size: 14px;
-            color: #777;
-            margin-bottom: 10px;
-        }
+.hero-text p {
+    margin: 5px 0;
+}
 
-        .read-more {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 18px;
-            background-color: #e63946;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
+/* ONGLETS */
+.tabs {
+    display: flex;
+    justify-content: center;
+    background: #e63946;
+}
 
-        .read-more:hover {
-            background-color: #c1121f;
-        }
+.tabs button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #0a1f44;
-            color: white;
-            margin-top: 60px;
-        }
-    </style>
+.tabs button:hover {
+    background: #c1121f;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #e63946;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0a1f44;
+    color: white;
+}
+</style>
 </head>
+
 <body>
 
 <div class="header">
     <h1>📰 Mes articles Ouest-France</h1>
 </div>
 
-<div class="container">
-
-    <!-- ARTICLE 1 -->
-    <div class="article-card">
-        <h2>Football National 3 : Vire réalise la bonne opération face à Cesson</h2>
-        <div class="meta">Football — National 3</div>
-        <p>
-            Vire s’impose face à Cesson dans un match important et réalise une très bonne opération au classement,
-            restant pleinement dans la course à ses objectifs en National 3.
-        </p>
-        <a class="read-more" href="https://www.ouest-france.fr/sport/football/national-3/football-national-3-vire-realise-la-bonne-operation-en-simposant-face-a-cesson-28bc1536-3b65-11f1-a950-0332529e658c" target="_blank">
-            Lire l’article →
-        </a>
+<!-- UNE PRINCIPALE -->
+<div class="hero">
+    <img src="https://via.placeholder.com/1200x400?text=SM+Caen">
+    <div class="hero-text">
+        <h2>SM Caen enfonce Dives-Cabourg</h2>
+        <p>Une victoire importante en National 3 pour la réserve caennaise</p>
+        <a href="https://www.ouest-france.fr/sport/football/sm-caen/football-national-3-le-sm-caen-enfonce-dives-cabourg-3c56b310-40e4-11f1-acf7-4654cd3332b5" class="btn" target="_blank">Lire l'article</a>
     </div>
+</div>
 
-    <!-- ARTICLE 2 -->
-    <div class="article-card">
-        <h2>Badminton Top 12 : « La relégation est logique »</h2>
-        <div class="meta">Badminton — Top 12</div>
-        <a class="read-more" href="https://www.ouest-france.fr/sport/badminton/badminton-top-12-la-relegation-est-logique-regis-le-goff-president-de-caen-revient-sur-la-saison-de-son-club-6ecc4776-3660-11f1-aa8d-862764c4f0ec" target="_blank">
-            Lire l’article →
-        </a>
-    </div>
+<!-- ONGLETS -->
+<div class="tabs">
+    <button onclick="filter('all')">Tous</button>
+    <button onclick="filter('foot')">Football</button>
+    <button onclick="filter('autres')">Autres sports</button>
+</div>
 
-    <!-- ARTICLE 3 -->
-    <div class="article-card">
-        <h2>Badminton Top 12 : Caen termine sa saison par une défaite</h2>
-        <div class="meta">Badminton — Top 12</div>
-        <a class="read-more" href="https://www.ouest-france.fr/sport/badminton/badminton-top-12-les-caennais-terminent-leur-saison-dans-lelite-par-une-defaite-7cd28f5e-35d6-11f1-8f32-c6d1bcd5fecd" target="_blank">
-            Lire l’article →
-        </a>
-    </div>
+<!-- ARTICLES -->
+<div class="grid">
 
-    <!-- ARTICLE 4 -->
-    <div class="article-card">
-        <h2>Basket N2F : Douvres gagne le derby face à Mondeville</h2>
-        <div class="meta">Basket — N2F</div>
-        <a class="read-more" href="https://www.ouest-france.fr/sport/basket/douvres-basket/basket-ball-n2f-douvres-sort-une-nouvelle-fois-vainqueur-du-derby-face-a-mondeville-18a61d8c-3074-11f1-b6ef-35cf984fdd2d" target="_blank">
-            Lire l’article →
-        </a>
+<div class="card foot">
+    <img src="https://via.placeholder.com/400x200?text=Vire">
+    <div class="card-content">
+        <h3>Vire relance le championnat</h3>
+        <a href="https://www.ouest-france.fr/sport/football/vire-af/football-national-3-ce-match-relance-le-championnat-juge-dorian-charlier-af-virois-en-quete-dune-montee-3d695344-3be3-11f1-a950-0332529e658c" class="btn" target="_blank">Lire</a>
     </div>
+</div>
 
-    <!-- ARTICLE 5 -->
-    <div class="article-card">
-        <h2>Handball N2F : Colombelles domine Lanester</h2>
-        <div class="meta">Handball — N2F</div>
-        <a class="read-more" href="https://www.ouest-france.fr/sport/handball/handball-n2f-colombelles-lemporte-largement-face-a-lanester-8a5e382c-2b94-11f1-b6d3-a26d21fbb514" target="_blank">
-            Lire l’article →
-        </a>
+<div class="card autres">
+    <img src="https://via.placeholder.com/400x200?text=Badminton">
+    <div class="card-content">
+        <h3>Relégation logique pour Caen</h3>
+        <a href="https://www.ouest-france.fr/sport/badminton/badminton-top-12-la-relegation-est-logique-regis-le-goff-president-de-caen-revient-sur-la-saison-de-son-club-6ecc4776-3660-11f1-aa8d-862764c4f0ec" class="btn" target="_blank">Lire</a>
     </div>
-
-    <!-- ARTICLE 6 -->
-    <div class="article-card">
-        <h2>Futsal D2 : Hérouville bat Reims</h2>
-        <div class="meta">Futsal — D2</div>
-        <a class="read-more" href="https://www.ouest-france.fr/sport/football/futsal/futsal-d2-herouville-remporte-le-choc-face-a-reims-et-peut-continuer-a-croire-a-la-montee-1d3c6c6c-2ae2-11f1-807d-f50ad06e3912" target="_blank">
-            Lire l’article →
-        </a>
-    </div>
-
-    <!-- ARTICLE 7 -->
-    <div class="article-card">
-        <h2>JS Cherbourg : départ de Thomas Loppy</h2>
-        <div class="meta">Handball</div>
-        <a class="read-more" href="https://www.ouest-france.fr/sport/handball/js-cherbourg/js-cherbourg-cest-une-page-qui-se-tourne-les-premiers-mots-de-thomas-loppy-sur-son-depart-a-saran-04191dde-0cb0-11f1-b839-4d59eb76df60" target="_blank">
-            Lire l’article →
-        </a>
-    </div>
-
-    <!-- ARTICLE 8 -->
-    <div class="article-card">
-        <h2>AS Cherbourg : un début au-delà des attentes</h2>
-        <div class="meta">Football — R1</div>
-        <a class="read-more" href="https://www.ouest-france.fr/sport/football/cherbourg/r1-cest-au-dela-de-nos-attentes-olivier-liot-president-de-las-cherbourg-evoque-le-debut-de-saison-de-son-club-35480eaa-0e37-11f1-b929-abb85d5fd4cd" target="_blank">
-            Lire l’article →
-        </a>
-    </div>
+</div>
 
 </div>
 
 <footer>
-    © MathouTheOne — Portfolio Journalistique
+    © MathouTheOne — Portfolio
 </footer>
+
+<script>
+function filter(category) {
+    let cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        if(category === 'all') {
+            card.style.display = 'block';
+        } else {
+            card.style.display = card.classList.contains(category) ? 'block' : 'none';
+        }
+    });
+}
+</script>
 
 </body>
 </html>
