@@ -6,178 +6,167 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-    font-family: 'Segoe UI', Arial;
-    margin: 0;
-    background: #f4f6f8;
-}
+body {font-family:'Segoe UI',Arial;margin:0;background:#f4f6f8;}
+.header {background:linear-gradient(90deg,#0a1f44,#1d3557);color:white;padding:25px;text-align:center;}
 
-/* HEADER */
-.header {
-    background: linear-gradient(90deg, #0a1f44, #1d3557);
-    color: white;
-    padding: 25px;
-    text-align: center;
-}
+.hero {position:relative;max-width:1100px;margin:30px auto;border-radius:12px;overflow:hidden;}
+.hero img {width:100%;height:350px;object-fit:cover;}
+.hero-text {position:absolute;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,0.8));color:white;width:100%;padding:20px;}
 
-/* UNE */
-.hero {
-    position: relative;
-    max-width: 1100px;
-    margin: 30px auto;
-    border-radius: 12px;
-    overflow: hidden;
-}
+.tabs {display:flex;justify-content:center;background:#e63946;}
+.tabs button {background:none;border:none;color:white;padding:15px;cursor:pointer;font-weight:bold;}
 
-.hero img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-}
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;padding:30px;max-width:1100px;margin:auto;}
 
-.hero-text {
-    position: absolute;
-    bottom: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    width: 100%;
-    padding: 20px;
-}
+.card {background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
+.card img {width:100%;height:180px;object-fit:cover;}
+.card-content {padding:15px;}
+.meta {font-size:13px;color:gray;}
 
-.hero-text h2 {
-    margin: 0;
-    font-size: 28px;
-}
+.btn {display:inline-block;margin-top:10px;padding:8px 14px;background:#e63946;color:white;text-decoration:none;border-radius:5px;}
 
-.hero-text p {
-    margin: 5px 0;
-}
-
-/* ONGLETS */
-.tabs {
-    display: flex;
-    justify-content: center;
-    background: #e63946;
-}
-
-.tabs button {
-    background: none;
-    border: none;
-    color: white;
-    padding: 15px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.tabs button:hover {
-    background: #c1121f;
-}
-
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 30px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-/* CARD */
-.card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 15px;
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 14px;
-    background: #e63946;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #0a1f44;
-    color: white;
-}
+footer {text-align:center;padding:20px;background:#0a1f44;color:white;}
 </style>
 </head>
 
 <body>
 
 <div class="header">
-    <h1>📰 Mes articles Ouest-France</h1>
+<h1>📰 Mes articles Ouest-France</h1>
 </div>
 
-<!-- UNE PRINCIPALE -->
+<!-- UNE -->
 <div class="hero">
-    <img src="https://via.placeholder.com/1200x400?text=SM+Caen">
-    <div class="hero-text">
-        <h2>SM Caen enfonce Dives-Cabourg</h2>
-        <p>Une victoire importante en National 3 pour la réserve caennaise</p>
-        <a href="https://www.ouest-france.fr/sport/football/sm-caen/football-national-3-le-sm-caen-enfonce-dives-cabourg-3c56b310-40e4-11f1-acf7-4654cd3332b5" class="btn" target="_blank">Lire l'article</a>
-    </div>
+<img src="https://via.placeholder.com/1200x400?text=Dives-Cabourg">
+<div class="hero-text">
+<h2>Dives-Cabourg doit aller chercher les 6 points</h2>
+<p>Un enjeu crucial pour le maintien en National 3</p>
+<a href="https://www.ouest-france.fr/sport/football/su-dives-cabourg/football-n3-dives-cabourg-doit-aller-chercher-les-6-points-pour-se-maintenir-cdf4f51a-4158-11f1-acf7-4654cd3332b5" class="btn" target="_blank">Lire</a>
+</div>
 </div>
 
 <!-- ONGLETS -->
 <div class="tabs">
-    <button onclick="filter('all')">Tous</button>
-    <button onclick="filter('foot')">Football</button>
-    <button onclick="filter('autres')">Autres sports</button>
+<button onclick="filter('all')">Tous</button>
+<button onclick="filter('foot')">Football</button>
+<button onclick="filter('autres')">Autres sports</button>
 </div>
 
 <!-- ARTICLES -->
 <div class="grid">
 
+<!-- 1 -->
 <div class="card foot">
-    <img src="https://via.placeholder.com/400x200?text=Vire">
-    <div class="card-content">
-        <h3>Vire relance le championnat</h3>
-        <a href="https://www.ouest-france.fr/sport/football/vire-af/football-national-3-ce-match-relance-le-championnat-juge-dorian-charlier-af-virois-en-quete-dune-montee-3d695344-3be3-11f1-a950-0332529e658c" class="btn" target="_blank">Lire</a>
-    </div>
+<img src="https://via.placeholder.com/400x200?text=SM+Caen">
+<div class="card-content">
+<h3>SM Caen enfonce Dives-Cabourg</h3>
+<p class="meta">Football — N3</p>
+<a href="https://www.ouest-france.fr/sport/football/sm-caen/football-national-3-le-sm-caen-enfonce-dives-cabourg-3c56b310-40e4-11f1-acf7-4654cd3332b5" class="btn" target="_blank">Lire</a>
+</div>
 </div>
 
+<!-- 2 -->
+<div class="card foot">
+<img src="https://via.placeholder.com/400x200?text=Vire">
+<div class="card-content">
+<h3>« Ce match relance le championnat »</h3>
+<p class="meta">Football — N3</p>
+<a href="https://www.ouest-france.fr/sport/football/vire-af/football-national-3-ce-match-relance-le-championnat-juge-dorian-charlier-af-virois-en-quete-dune-montee-3d695344-3be3-11f1-a950-0332529e658c" class="btn" target="_blank">Lire</a>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="card foot">
+<img src="https://via.placeholder.com/400x200?text=Vire">
+<div class="card-content">
+<h3>Vire réalise la bonne opération</h3>
+<p class="meta">Football — N3</p>
+<a href="https://www.ouest-france.fr/sport/football/national-3/football-national-3-vire-realise-la-bonne-operation-en-simposant-face-a-cesson-28bc1536-3b65-11f1-a950-0332529e658c" class="btn" target="_blank">Lire</a>
+</div>
+</div>
+
+<!-- 4 -->
 <div class="card autres">
-    <img src="https://via.placeholder.com/400x200?text=Badminton">
-    <div class="card-content">
-        <h3>Relégation logique pour Caen</h3>
-        <a href="https://www.ouest-france.fr/sport/badminton/badminton-top-12-la-relegation-est-logique-regis-le-goff-president-de-caen-revient-sur-la-saison-de-son-club-6ecc4776-3660-11f1-aa8d-862764c4f0ec" class="btn" target="_blank">Lire</a>
-    </div>
+<img src="https://via.placeholder.com/400x200?text=Badminton">
+<div class="card-content">
+<h3>Relégation logique pour Caen</h3>
+<p class="meta">Badminton</p>
+<a href="https://www.ouest-france.fr/sport/badminton/badminton-top-12-la-relegation-est-logique-regis-le-goff-president-de-caen-revient-sur-la-saison-de-son-club-6ecc4776-3660-11f1-aa8d-862764c4f0ec" class="btn" target="_blank">Lire</a>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="card autres">
+<img src="https://via.placeholder.com/400x200?text=Badminton">
+<div class="card-content">
+<h3>Caen termine par une défaite</h3>
+<p class="meta">Badminton</p>
+<a href="https://www.ouest-france.fr/sport/badminton/badminton-top-12-les-caennais-terminent-leur-saison-dans-lelite-par-une-defaite-7cd28f5e-35d6-11f1-8f32-c6d1bcd5fecd" class="btn" target="_blank">Lire</a>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="card autres">
+<img src="https://via.placeholder.com/400x200?text=Basket">
+<div class="card-content">
+<h3>Douvres gagne le derby</h3>
+<p class="meta">Basket — N2F</p>
+<a href="https://www.ouest-france.fr/sport/basket/douvres-basket/basket-ball-n2f-douvres-sort-une-nouvelle-fois-vainqueur-du-derby-face-a-mondeville-18a61d8c-3074-11f1-b6ef-35cf984fdd2d" class="btn" target="_blank">Lire</a>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="card autres">
+<img src="https://via.placeholder.com/400x200?text=Handball">
+<div class="card-content">
+<h3>Colombelles domine Lanester</h3>
+<p class="meta">Handball — N2F</p>
+<a href="https://www.ouest-france.fr/sport/handball/handball-n2f-colombelles-lemporte-largement-face-a-lanester-8a5e382c-2b94-11f1-b6d3-a26d21fbb514" class="btn" target="_blank">Lire</a>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="card autres">
+<img src="https://via.placeholder.com/400x200?text=Futsal">
+<div class="card-content">
+<h3>Hérouville bat Reims</h3>
+<p class="meta">Futsal — D2</p>
+<a href="https://www.ouest-france.fr/sport/football/futsal/futsal-d2-herouville-remporte-le-choc-face-a-reims-et-peut-continuer-a-croire-a-la-montee-1d3c6c6c-2ae2-11f1-807d-f50ad06e3912" class="btn" target="_blank">Lire</a>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="card autres">
+<img src="https://via.placeholder.com/400x200?text=Handball">
+<div class="card-content">
+<h3>Départ de Thomas Loppy</h3>
+<p class="meta">Handball</p>
+<a href="https://www.ouest-france.fr/sport/handball/js-cherbourg/js-cherbourg-cest-une-page-qui-se-tourne-les-premiers-mots-de-thomas-loppy-sur-son-depart-a-saran-04191dde-0cb0-11f1-b839-4d59eb76df60" class="btn" target="_blank">Lire</a>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="card foot">
+<img src="https://via.placeholder.com/400x200?text=AS+Cherbourg">
+<div class="card-content">
+<h3>AS Cherbourg : « Au-delà de nos attentes »</h3>
+<p class="meta">Football — R1</p>
+<a href="https://www.ouest-france.fr/sport/football/cherbourg/r1-cest-au-dela-de-nos-attentes-olivier-liot-president-de-las-cherbourg-evoque-le-debut-de-saison-de-son-club-35480eaa-0e37-11f1-b929-abb85d5fd4cd" class="btn" target="_blank">Lire</a>
+</div>
 </div>
 
 </div>
 
 <footer>
-    © MathouTheOne — Portfolio
+© MathouTheOne — Portfolio Journalistique
 </footer>
 
 <script>
-function filter(category) {
-    let cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        if(category === 'all') {
-            card.style.display = 'block';
-        } else {
-            card.style.display = card.classList.contains(category) ? 'block' : 'none';
-        }
-    });
+function filter(category){
+let cards=document.querySelectorAll('.card');
+cards.forEach(card=>{
+card.style.display=(category==='all'||card.classList.contains(category))?'block':'none';
+});
 }
 </script>
 
