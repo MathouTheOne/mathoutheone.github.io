@@ -2,176 +2,99 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Portfolio — Mathieu Garcia, Journaliste</title>
+<title>Portfolio — Mathieu Garcia, Etudiant en journalisme</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --ink: #0D1B2A;
-    --ink-mid: #3D4F60;
-    --ink-light: #8B97A4;
-    --rouge: #C8102E;
-    --rouge-light: #F9E5E8;
-    --or: #F0A500;
-    --surface: #FAFAF8;
-    --white: #FFFFFF;
-    --border: #E2E5E9;
+    --ink: #0D1B2A; --ink-mid: #3D4F60; --ink-light: #8B97A4;
+    --rouge: #C8102E; --or: #F0A500; --surface: #FAFAF8;
+    --white: #FFFFFF; --border: #E2E5E9;
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-sans: 'Inter', system-ui, sans-serif;
   }
-
   body { font-family: var(--font-sans); background: var(--surface); color: var(--ink); }
 
-  /* ── HEADER ── */
   .masthead {
-    background: var(--ink);
-    color: var(--white);
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    padding: 0 40px;
-    height: 64px;
+    background: var(--ink); color: var(--white);
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center; padding: 0 40px; height: 64px;
     border-bottom: 3px solid var(--rouge);
   }
   .masthead-left { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8B97A4; }
   .masthead-logo { text-align: center; }
-  .masthead-logo a { text-decoration: none; }
-  .masthead-logo .name { font-family: var(--font-serif); font-size: 22px; color: var(--white); letter-spacing: 0.02em; }
+  .masthead-logo .name { font-family: var(--font-serif); font-size: 22px; color: var(--white); }
   .masthead-logo .role { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--or); margin-top: 1px; }
-  .masthead-right { text-align: right; font-size: 11px; color: #8B97A4; letter-spacing: 0.08em; }
+  .masthead-right { text-align: right; font-size: 11px; color: #8B97A4; }
 
-  /* ── BANDEAU ÉDITION ── */
   .edition-bar {
-    background: var(--rouge);
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    padding: 8px 40px;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 500;
+    background: var(--rouge); color: var(--white);
+    display: flex; align-items: center; justify-content: center; gap: 32px;
+    padding: 8px 40px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
   }
-  .edition-bar span { opacity: 0.7; }
-  .edition-bar strong { opacity: 1; }
+  .edition-bar span { opacity: 0.7; } .edition-bar strong { opacity: 1; }
 
-  /* ── UNE (ARTICLE VEDETTE) ── */
   .une-wrapper { max-width: 1200px; margin: 36px auto 0; padding: 0 24px; }
-  .une {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 0;
-    background: var(--white);
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
+  .une { display: grid; grid-template-columns: 1fr 340px; background: var(--white); border: 1px solid var(--border); overflow: hidden; }
   .une-visual { position: relative; overflow: hidden; min-height: 340px; }
   .une-visual img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
   .une:hover .une-visual img { transform: scale(1.02); }
-  .une-badge {
-    position: absolute; top: 16px; left: 16px;
-    background: var(--rouge); color: var(--white);
-    font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-    padding: 5px 12px;
-  }
+  .une-badge { position: absolute; top: 16px; left: 16px; background: var(--rouge); color: var(--white); font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; padding: 5px 12px; }
   .une-body { padding: 36px 32px; display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid var(--border); }
   .une-rubrique { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rouge); margin-bottom: 14px; }
-  .une-titre { font-family: var(--font-serif); font-size: 28px; line-height: 1.25; color: var(--ink); margin-bottom: 16px; }
+  .une-titre { font-family: var(--font-serif); font-size: 28px; line-height: 1.25; margin-bottom: 16px; }
   .une-extrait { font-size: 14px; color: var(--ink-mid); line-height: 1.7; flex: 1; }
   .une-footer { margin-top: 28px; display: flex; align-items: center; justify-content: space-between; padding-top: 20px; border-top: 1px solid var(--border); }
   .une-meta { font-size: 12px; color: var(--ink-light); }
-  .btn-lire {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: var(--ink); color: var(--white);
-    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 10px 20px; text-decoration: none;
-    transition: background 0.2s;
-  }
+  .btn-lire { display: inline-flex; align-items: center; gap: 6px; background: var(--ink); color: var(--white); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 10px 20px; text-decoration: none; transition: background 0.2s; }
   .btn-lire:hover { background: var(--rouge); }
   .btn-lire svg { width: 12px; height: 12px; }
 
-  /* ── FILTRES ── */
   .filtres-wrapper { max-width: 1200px; margin: 32px auto 0; padding: 0 24px; }
-  .filtres-inner {
-    display: flex; align-items: center; gap: 4px;
-    border-bottom: 2px solid var(--ink);
-    padding-bottom: 0;
-  }
+  .filtres-inner { display: flex; align-items: center; gap: 4px; border-bottom: 2px solid var(--ink); }
   .filtres-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-light); margin-right: 12px; white-space: nowrap; }
-  .filtre-btn {
-    background: none; border: none; cursor: pointer;
-    font-family: var(--font-sans); font-size: 13px; font-weight: 500;
-    color: var(--ink-mid); padding: 10px 18px;
-    border-bottom: 3px solid transparent; margin-bottom: -2px;
-    transition: color 0.2s, border-color 0.2s;
-    letter-spacing: 0.02em;
-  }
+  .filtre-btn { background: none; border: none; cursor: pointer; font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--ink-mid); padding: 10px 18px; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color 0.2s, border-color 0.2s; }
   .filtre-btn:hover { color: var(--ink); }
   .filtre-btn.actif { color: var(--rouge); border-bottom-color: var(--rouge); font-weight: 600; }
 
-  /* ── COMPTEUR ── */
   .compteur-wrapper { max-width: 1200px; margin: 20px auto 0; padding: 0 24px; }
   #compteur { font-size: 12px; color: var(--ink-light); }
   #compteur strong { color: var(--ink); }
 
-  /* ── GRILLE ARTICLES ── */
   .grille-wrapper { max-width: 1200px; margin: 16px auto 0; padding: 0 24px 60px; }
   .grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-  .card {
-    background: var(--white); border: 1px solid var(--border);
-    display: flex; flex-direction: column;
-    transition: box-shadow 0.25s, transform 0.25s;
-  }
+  .card { background: var(--white); border: 1px solid var(--border); display: flex; flex-direction: column; transition: box-shadow 0.25s, transform 0.25s; }
   .card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.10); transform: translateY(-2px); }
   .card.hidden { display: none; }
 
   .card-img { position: relative; overflow: hidden; }
   .card-img img { width: 100%; height: 180px; object-fit: cover; display: block; transition: transform 0.4s ease; }
   .card:hover .card-img img { transform: scale(1.04); }
-  .card-sport-badge {
-    position: absolute; bottom: 10px; left: 10px;
-    font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 4px 10px; color: var(--white);
-  }
-  .badge-foot { background: #1a3a5c; }
-  .badge-basket { background: #8B4513; }
-  .badge-hand { background: #2d6a4f; }
-  .badge-badminton { background: #5a189a; }
-  .badge-futsal { background: #0077b6; }
-  .badge-autres { background: #444; }
+  .card-sport-badge { position: absolute; bottom: 10px; left: 10px; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; color: var(--white); }
+  .badge-foot { background: #1a3a5c; } .badge-basket { background: #8B4513; }
+  .badge-hand { background: #2d6a4f; } .badge-badminton { background: #5a189a; }
+  .badge-futsal { background: #0077b6; } .badge-autres { background: #444; }
 
   .card-body { padding: 18px 20px; flex: 1; display: flex; flex-direction: column; }
   .card-rubrique { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rouge); margin-bottom: 8px; }
-  .card-titre { font-family: var(--font-serif); font-size: 17px; line-height: 1.35; color: var(--ink); margin-bottom: 8px; }
+  .card-titre { font-family: var(--font-serif); font-size: 17px; line-height: 1.35; margin-bottom: 8px; }
   .card-extrait { font-size: 13px; color: var(--ink-mid); line-height: 1.6; flex: 1; }
   .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
   .card-meta { font-size: 11px; color: var(--ink-light); }
-  .card-lire {
-    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--rouge); text-decoration: none;
-    display: flex; align-items: center; gap: 4px;
-    transition: opacity 0.2s;
-  }
+  .card-lire { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rouge); text-decoration: none; display: flex; align-items: center; gap: 4px; transition: opacity 0.2s; background: none; border: none; cursor: pointer; font-family: inherit; padding: 0; }
   .card-lire:hover { opacity: 0.7; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink);
-    color: #8B97A4;
-    text-align: center;
-    padding: 32px;
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    border-top: 3px solid var(--rouge);
-  }
+  .img-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: rgba(0,0,0,0.55); color: white; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; pointer-events: none; white-space: nowrap; }
+
+  #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 9999; cursor: zoom-out; align-items: center; justify-content: center; padding: 24px; }
+  #lightbox.open { display: flex; }
+  #lightbox img { max-width: 92%; max-height: 92vh; object-fit: contain; border-radius: 4px; }
+
+  footer { background: var(--ink); color: #8B97A4; text-align: center; padding: 32px; font-size: 12px; letter-spacing: 0.05em; border-top: 3px solid var(--rouge); }
   footer strong { color: var(--white); }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .masthead { grid-template-columns: 1fr; height: auto; padding: 16px 20px; text-align: center; gap: 4px; }
     .masthead-left, .masthead-right { display: none; }
@@ -188,41 +111,38 @@
 </head>
 <body>
 
-<!-- MASTHEAD -->
 <header class="masthead">
   <div class="masthead-left">Caen · Normandie</div>
   <div class="masthead-logo">
     <div class="name">Mathieu Garcia</div>
     <div class="role">Portfolio journalistique</div>
   </div>
-  <div class="masthead-right">Ouest-France</div>
+  <div class="masthead-right">Ouest-France · La Nouvelle République</div>
 </header>
 
-<!-- BANDEAU ÉDITION -->
 <div class="edition-bar">
-  <span>Saison <strong>2024–2025</strong></span>
+  <span>Année <strong>2026</strong></span>
   <span>·</span>
-  <span><strong>13</strong> articles publiés</span>
+  <span><strong>14</strong> articles publiés</span>
   <span>·</span>
-  <span>Football et autres sports</span>
+  <span>Football · Sports</span>
 </div>
 
-<!-- UNE -->
 <div class="une-wrapper">
   <div class="une">
     <div class="une-visual">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Stade_Michel_d%27Ornano_%28Caen%29.jpg/1280px-Stade_Michel_d%27Ornano_%28Caen%29.jpg" alt="SM Caen">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Handball-WM-Qualifikation_AUT-BLR_089.jpg/640px-Handball-WM-Qualifikation_AUT-BLR_089.jpg" alt="Romain Guillard Grand Poitiers">
       <div class="une-badge">À la une</div>
     </div>
     <div class="une-body">
       <div>
-        <div class="une-rubrique">Football · D3F</div>
-        <h1 class="une-titre">Caen termine sa saison sur un match nul</h1>
-        <p class="une-extrait">Le SM Caen conclut son exercice en D3F Féminine avec un résultat partagé lors de la dernière journée. Bilan d'une saison plus que réussite pour le club normand.</p>
+        <div class="une-rubrique">Handball · Nationale 1 · La Nouvelle République</div>
+        <h1 class="une-titre">« Je suis fier d'avoir partagé ce chemin avec eux »</h1>
+        <p class="une-extrait">Romain Guillard, entraîneur de Grand Poitiers Handball, se confie après le titre de champion de Nationale 1. Entre fierté, émotion et bilan d'une saison accomplie avec son groupe.</p>
       </div>
       <div class="une-footer">
-        <div class="une-meta">Dernière parution · SM Caen</div>
-        <a href="https://www.ouest-france.fr/sport/football/" class="btn-lire" target="_blank">
+        <div class="une-meta">Dernière parution · Grand Poitiers HB</div>
+        <a href="https://www.lanouvellerepublique.fr/poitiers/je-suis-fier-d-avoir-partage-ce-chemin-avec-eux-evoque-l-entraineur-de-grand-poitiers-handball-romain-guillard-1780838340" class="btn-lire" target="_blank">
           Lire l'article
           <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6h8M6 2l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -231,7 +151,6 @@
   </div>
 </div>
 
-<!-- FILTRES -->
 <div class="filtres-wrapper">
   <div class="filtres-inner">
     <span class="filtres-label">Filtrer par</span>
@@ -241,42 +160,21 @@
   </div>
 </div>
 
-<!-- COMPTEUR -->
-<div class="compteur-wrapper">
-  <p id="compteur"></p>
-</div>
+<div class="compteur-wrapper"><p id="compteur"></p></div>
 
-<!-- GRILLE -->
 <div class="grille-wrapper">
   <div class="grille" id="grille">
 
-    <!-- N1 - A -->
+    <!-- 1 — Guillard interview (le plus récent, juin 2026) -->
     <article class="card autres" data-cat="autres">
       <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Handball_pictogram.svg/640px-Handball_pictogram.svg.png" alt="Grand Poitiers Handball N1" style="background:#e8f0f7; object-fit: contain; padding: 30px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Handball-WM-Qualifikation_AUT-BLR_089.jpg/640px-Handball-WM-Qualifikation_AUT-BLR_089.jpg">
         <span class="card-sport-badge badge-hand">N1</span>
       </div>
       <div class="card-body">
-        <div class="card-rubrique">Handball · Nationale 1</div>
-        <h2 class="card-titre">Grand Poitiers termine sa saison de champion par une défaite face à Caen</h2>
-        <p class="card-extrait">Déjà sacré champion de Nationale 1, Grand Poitiers Handball s'incline lors de l'ultime journée face à Caen. Cela n'entache pas la saison historique du club viennois.</p>
-        <div class="card-footer">
-          <span class="card-meta">Grand Poitiers HB</span>
-          <a href="https://www.lanouvellerepublique.fr/vienne/grand-poitiers/nationale-1-grand-poitiers-handball-termine-sa-saison-de-champion-par-une-defaite-face-a-caen-1780783953" class="card-lire" target="_blank">Lire →</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- N1 - B -->
-    <article class="card autres" data-cat="autres">
-      <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Handball_pictogram.svg/640px-Handball_pictogram.svg.png" alt="Romain Guillard Grand Poitiers" style="background:#f0eaf7; object-fit: contain; padding: 30px;">
-        <span class="card-sport-badge badge-hand">N1</span>
-      </div>
-      <div class="card-body">
-        <div class="card-rubrique">Handball · Nationale 1</div>
+        <div class="card-rubrique">Handball · Nationale 1 · La Nouvelle République</div>
         <h2 class="card-titre">« Je suis fier d'avoir partagé ce chemin avec eux »</h2>
-        <p class="card-extrait">Romain Guillard, entraîneur de Grand Poitiers Handball, se confie après le titre de champion de son équipe. Il quitte le club après deux ans à la tête de l'équipe.</p>
+        <p class="card-extrait">Romain Guillard, entraîneur de Grand Poitiers Handball, se confie après le titre de champion de Nationale 1. Entre fierté, émotion et bilan d'une saison accomplie avec son groupe.</p>
         <div class="card-footer">
           <span class="card-meta">Grand Poitiers HB</span>
           <a href="https://www.lanouvellerepublique.fr/poitiers/je-suis-fier-d-avoir-partage-ce-chemin-avec-eux-evoque-l-entraineur-de-grand-poitiers-handball-romain-guillard-1780838340" class="card-lire" target="_blank">Lire →</a>
@@ -284,14 +182,66 @@
       </div>
     </article>
 
-    <!-- 1 -->
+    <!-- 2 — Grand Poitiers défaite finale N1 -->
+    <article class="card autres" data-cat="autres">
+      <div class="card-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Handball_Bundesliga_Frauen_TuS_Metzingen_gegen_Bayer_Leverkusen_2013-02-09.jpg/640px-Handball_Bundesliga_Frauen_TuS_Metzingen_gegen_Bayer_Leverkusen_2013-02-09.jpg" alt="Grand Poitiers N1">
+        <span class="card-sport-badge badge-hand">N1</span>
+      </div>
+      <div class="card-body">
+        <div class="card-rubrique">Handball · Nationale 1 · La Nouvelle République</div>
+        <h2 class="card-titre">Grand Poitiers termine sa saison de champion par une défaite face à Caen</h2>
+        <p class="card-extrait">Déjà sacré champion de Nationale 1, Grand Poitiers s'incline lors de l'ultime journée face à Caen HB. Un revers sans conséquence au terme d'un exercice historique pour le club viennois.</p>
+        <div class="card-footer">
+          <span class="card-meta">Grand Poitiers HB</span>
+          <a href="https://www.lanouvellerepublique.fr/vienne/grand-poitiers/nationale-1-grand-poitiers-handball-termine-sa-saison-de-champion-par-une-defaite-face-a-caen-1780783953" class="card-lire" target="_blank">Lire →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 — Article image : Caen HB B vs Grand Poitiers N1M -->
+    <article class="card autres" data-cat="autres">
+      <div class="card-img" style="cursor:pointer;" onclick="ouvrirImage()">
+        <img src="/mnt/user-data/uploads/Screenshot_20260607-155537.jpg" alt="Caen HB B vs Grand Poitiers N1M" style="height:180px; object-fit:cover; object-position:top;">
+        <span class="card-sport-badge badge-hand">N1M</span>
+        <div class="img-overlay">Voir l'article</div>
+      </div>
+      <div class="card-body">
+        <div class="card-rubrique">Handball · Nationale 1M · Presse papier</div>
+        <h2 class="card-titre">N1M. La réserve de Caen s'offre le champion</h2>
+        <p class="card-extrait">Caen HB (B) l'emporte 38-36 face au champion Grand Poitiers dans un match renversant. Menés à la mi-temps, les Vikings ont retourné la situation grâce à 8 arrêts décisifs de Balcaen.</p>
+        <div class="card-footer">
+          <span class="card-meta">Caen HB (B) – Grand Poitiers</span>
+          <button onclick="ouvrirImage()" class="card-lire">Voir →</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4 — SM Caen match nul fin de saison D3F -->
     <article class="card foot" data-cat="foot">
       <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/SMCaenFC.svg/600px-SMCaenFC.svg.png" alt="SM Caen vs QRM">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Stade_Michel_d%27Ornano_%28Caen%29.jpg/1280px-Stade_Michel_d%27Ornano_%28Caen%29.jpg" alt="SM Caen D3F fin de saison">
         <span class="card-sport-badge badge-foot">D3F</span>
       </div>
       <div class="card-body">
-        <div class="card-rubrique">Football · D3F</div>
+        <div class="card-rubrique">Football · D3F · Ouest-France</div>
+        <h2 class="card-titre">Caen termine sa saison sur un match nul</h2>
+        <p class="card-extrait">Le SM Caen conclut son exercice en D3F Féminine avec un résultat partagé lors de la dernière journée. Un bilan qui reflète une saison contrastée pour le club normand.</p>
+        <div class="card-footer">
+          <span class="card-meta">SM Caen</span>
+          <a href="https://www.ouest-france.fr/sport/football/" class="card-lire" target="_blank">Lire →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5 — SM Caen QRM D3F -->
+    <article class="card foot" data-cat="foot">
+      <div class="card-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/2019-10-20_SV_Werder_Bremen_vs._FC_Schalke_04_by_Sandro_Halank%E2%80%93177.jpg/640px-2019-10-20_SV_Werder_Bremen_vs._FC_Schalke_04_by_Sandro_Halank%E2%80%93177.jpg" alt="SM Caen vs QRM">
+        <span class="card-sport-badge badge-foot">D3F</span>
+      </div>
+      <div class="card-body">
+        <div class="card-rubrique">Football · D3F · Ouest-France</div>
         <h2 class="card-titre">Le SM Caen remporte le derby face à QRM</h2>
         <p class="card-extrait">Les Caennaises s'imposent dans ce choc normand face à Quevilly-Rouen, confirmant leur dynamique en deuxième partie de saison.</p>
         <div class="card-footer">
@@ -301,14 +251,14 @@
       </div>
     </article>
 
-    <!-- 2 -->
+    <!-- 5 — Dives-Cabourg 6 points -->
     <article class="card foot" data-cat="foot">
       <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Wikimedia_Foundation_Servers-8055_35.jpg/640px-Wikimedia_Foundation_Servers-8055_35.jpg" alt="Dives-Cabourg N3" style="object-position: center;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Football_pictogram.svg/640px-Football_pictogram.svg.png" alt="Dives-Cabourg N3" style="background:#1a3a5c; object-fit:contain; padding:30px;">
         <span class="card-sport-badge badge-foot">N3</span>
       </div>
       <div class="card-body">
-        <div class="card-rubrique">Football · National 3</div>
+        <div class="card-rubrique">Football · National 3 · Ouest-France</div>
         <h2 class="card-titre">Dives-Cabourg doit aller chercher les 6 points</h2>
         <p class="card-extrait">Le club calvadosien se retrouve dans l'obligation de gagner ses deux derniers matchs pour espérer se maintenir en National 3.</p>
         <div class="card-footer">
@@ -318,14 +268,14 @@
       </div>
     </article>
 
-    <!-- 3 -->
+    <!-- 6 — SM Caen enfonce Dives -->
     <article class="card foot" data-cat="foot">
       <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/SMCaenFC.svg/600px-SMCaenFC.svg.png" alt="SM Caen N3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Stade_Malherbe_Caen_-_Stade_Rennais_FC_%281-0%29_-_28_novembre_2015_%2822925977781%29.jpg/640px-Stade_Malherbe_Caen_-_Stade_Rennais_FC_%281-0%29_-_28_novembre_2015_%2822925977781%29.jpg" alt="SM Caen N3">
         <span class="card-sport-badge badge-foot">N3</span>
       </div>
       <div class="card-body">
-        <div class="card-rubrique">Football · National 3</div>
+        <div class="card-rubrique">Football · National 3 · Ouest-France</div>
         <h2 class="card-titre">Le SM Caen enfonce Dives-Cabourg</h2>
         <p class="card-extrait">Dans ce derby calvadosien disputé en National 3, le SM Caen s'est montré supérieur et inflige une large défaite à son voisin.</p>
         <div class="card-footer">
@@ -335,65 +285,14 @@
       </div>
     </article>
 
-    <!-- 4 -->
-    <article class="card foot" data-cat="foot">
-      <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Stade_de_Vire.jpg/640px-Stade_de_Vire.jpg" alt="AF Vire N3">
-        <span class="card-sport-badge badge-foot">N3</span>
-      </div>
-      <div class="card-body">
-        <div class="card-rubrique">Football · National 3</div>
-        <h2 class="card-titre">« Ce match relance le championnat »</h2>
-        <p class="card-extrait">Dorian Charlier, attaquant de l'AF Virois, revient sur la victoire de son équipe qui relance les enjeux en tête de championnat.</p>
-        <div class="card-footer">
-          <span class="card-meta">AF Vire</span>
-          <a href="https://www.ouest-france.fr/sport/football/vire-af/football-national-3-ce-match-relance-le-championnat-juge-dorian-charlier-af-virois-en-quete-dune-montee-3d695344-3be3-11f1-a950-0332529e658c" class="card-lire" target="_blank">Lire →</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 5 -->
-    <article class="card foot" data-cat="foot">
-      <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Stade_de_Vire.jpg/640px-Stade_de_Vire.jpg" alt="Vire N3">
-        <span class="card-sport-badge badge-foot">N3</span>
-      </div>
-      <div class="card-body">
-        <div class="card-rubrique">Football · National 3</div>
-        <h2 class="card-titre">Vire réalise la bonne opération</h2>
-        <p class="card-extrait">Face à Cesson, l'AF Virois s'impose et prend une option importante dans la course à la montée en National 2.</p>
-        <div class="card-footer">
-          <span class="card-meta">AF Vire</span>
-          <a href="https://www.ouest-france.fr/sport/football/national-3/football-national-3-vire-realise-la-bonne-operation-en-simposant-face-a-cesson-28bc1536-3b65-11f1-a950-0332529e658c" class="card-lire" target="_blank">Lire →</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 6 -->
-    <article class="card foot" data-cat="foot">
-      <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/AS_Cherbourg_logo.png/600px-AS_Cherbourg_logo.png" alt="AS Cherbourg R1" style="background:#f0f0f0; object-fit: contain; padding: 20px;">
-        <span class="card-sport-badge badge-foot">R1</span>
-      </div>
-      <div class="card-body">
-        <div class="card-rubrique">Football · Régional 1</div>
-        <h2 class="card-titre">Olivier Liot : « C'est au-delà de nos attentes »</h2>
-        <p class="card-extrait">Le président de l'AS Cherbourg se confie sur le début de saison remarquable de son club en Régional 1, au-delà des espérances initiales.</p>
-        <div class="card-footer">
-          <span class="card-meta">AS Cherbourg</span>
-          <a href="https://www.ouest-france.fr/sport/football/cherbourg/r1-cest-au-dela-de-nos-attentes-olivier-liot-president-de-las-cherbourg-evoque-le-debut-de-saison-de-son-club-35480eaa-0e37-11f1-b929-abb85d5fd4cd" class="card-lire" target="_blank">Lire →</a>
-        </div>
-      </div>
-    </article>
-
-    <!-- 7 -->
+    <!-- 7 — Badminton relégation logique -->
     <article class="card autres" data-cat="autres">
       <div class="card-img">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Badminton_Nationaux_2013_25.jpg/640px-Badminton_Nationaux_2013_25.jpg" alt="Badminton Caen Top 12">
         <span class="card-sport-badge badge-badminton">Top 12</span>
       </div>
       <div class="card-body">
-        <div class="card-rubrique">Badminton · Top 12</div>
+        <div class="card-rubrique">Badminton · Top 12 · Ouest-France</div>
         <h2 class="card-titre">« La relégation est logique » — Régis Le Goff</h2>
         <p class="card-extrait">Le président du Caen Badminton revient avec lucidité sur la saison de son club dans l'élite et tire les enseignements de cette descente.</p>
         <div class="card-footer">
@@ -403,14 +302,14 @@
       </div>
     </article>
 
-    <!-- 8 -->
+    <!-- 8 — Badminton Caen défaite -->
     <article class="card autres" data-cat="autres">
       <div class="card-img">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Badminton_Nationaux_2013_25.jpg/640px-Badminton_Nationaux_2013_25.jpg" alt="Badminton Caen défaite">
         <span class="card-sport-badge badge-badminton">Top 12</span>
       </div>
       <div class="card-body">
-        <div class="card-rubrique">Badminton · Top 12</div>
+        <div class="card-rubrique">Badminton · Top 12 · Ouest-France</div>
         <h2 class="card-titre">Caen termine par une défaite dans l'élite</h2>
         <p class="card-extrait">Dernier match en Top 12 pour les Caennais, qui concluent leur séjour dans l'élite du badminton français par une défaite.</p>
         <div class="card-footer">
@@ -420,14 +319,48 @@
       </div>
     </article>
 
-    <!-- 9 -->
+    <!-- 9 — Vire relance -->
+    <article class="card foot" data-cat="foot">
+      <div class="card-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Football_in_Bloomington%2C_Indiana%2C_2022_%28cropped%29.jpg/640px-Football_in_Bloomington%2C_Indiana%2C_2022_%28cropped%29.jpg" alt="AF Vire N3">
+        <span class="card-sport-badge badge-foot">N3</span>
+      </div>
+      <div class="card-body">
+        <div class="card-rubrique">Football · National 3 · Ouest-France</div>
+        <h2 class="card-titre">« Ce match relance le championnat »</h2>
+        <p class="card-extrait">Dorian Charlier, attaquant de l'AF Virois, revient sur la victoire de son équipe qui relance les enjeux en tête de championnat.</p>
+        <div class="card-footer">
+          <span class="card-meta">AF Vire</span>
+          <a href="https://www.ouest-france.fr/sport/football/vire-af/football-national-3-ce-match-relance-le-championnat-juge-dorian-charlier-af-virois-en-quete-dune-montee-3d695344-3be3-11f1-a950-0332529e658c" class="card-lire" target="_blank">Lire →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10 — Vire bonne opération -->
+    <article class="card foot" data-cat="foot">
+      <div class="card-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/2019-10-20_SV_Werder_Bremen_vs._FC_Schalke_04_by_Sandro_Halank%E2%80%93177.jpg/640px-2019-10-20_SV_Werder_Bremen_vs._FC_Schalke_04_by_Sandro_Halank%E2%80%93177.jpg" alt="Vire N3">
+        <span class="card-sport-badge badge-foot">N3</span>
+      </div>
+      <div class="card-body">
+        <div class="card-rubrique">Football · National 3 · Ouest-France</div>
+        <h2 class="card-titre">Vire réalise la bonne opération</h2>
+        <p class="card-extrait">Face à Cesson, l'AF Virois s'impose et prend une option importante dans la course à la montée en National 2.</p>
+        <div class="card-footer">
+          <span class="card-meta">AF Vire</span>
+          <a href="https://www.ouest-france.fr/sport/football/national-3/football-national-3-vire-realise-la-bonne-operation-en-simposant-face-a-cesson-28bc1536-3b65-11f1-a950-0332529e658c" class="card-lire" target="_blank">Lire →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 11 — Douvres derby basket -->
     <article class="card autres" data-cat="autres">
       <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Basketball_through_hoop.jpg/640px-Basketball_through_hoop.jpg" alt="Douvres Basket N2F">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Baskettball_Bundesliga_Frauen_-_TK_Hannover_vs_TSV_Wasserburg_2013-02-17_-_by_RalfR_-_097.jpg/640px-Baskettball_Bundesliga_Frauen_-_TK_Hannover_vs_TSV_Wasserburg_2013-02-17_-_by_RalfR_-_097.jpg" alt="Douvres Basket N2F">
         <span class="card-sport-badge badge-basket">N2F</span>
       </div>
       <div class="card-body">
-        <div class="card-rubrique">Basket-ball · N2F</div>
+        <div class="card-rubrique">Basket-ball · N2F · Ouest-France</div>
         <h2 class="card-titre">Douvres sort victorieux du derby face à Mondeville</h2>
         <p class="card-extrait">Pour la deuxième fois cette saison, Douvres Basket s'impose dans le derby calvadosien face à son rival de Mondeville.</p>
         <div class="card-footer">
@@ -437,14 +370,14 @@
       </div>
     </article>
 
-    <!-- 10 -->
+    <!-- 12 — Colombelles Lanester -->
     <article class="card autres" data-cat="autres">
       <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Handball_pictogram.svg/640px-Handball_pictogram.svg.png" alt="Handball Colombelles" style="background:#e8f4ec; object-fit: contain; padding: 30px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Handball_Bundesliga_Frauen_TuS_Metzingen_gegen_Bayer_Leverkusen_2013-02-09.jpg/640px-Handball_Bundesliga_Frauen_TuS_Metzingen_gegen_Bayer_Leverkusen_2013-02-09.jpg" alt="Handball Colombelles">
         <span class="card-sport-badge badge-hand">N2F</span>
       </div>
       <div class="card-body">
-        <div class="card-rubrique">Handball · N2F</div>
+        <div class="card-rubrique">Handball · N2F · Ouest-France</div>
         <h2 class="card-titre">Colombelles domine Lanester sans trembler</h2>
         <p class="card-extrait">Large victoire à domicile pour Colombelles qui s'impose clairement face à Lanester et confirme ses ambitions en Nationale 2 Féminine.</p>
         <div class="card-footer">
@@ -454,14 +387,14 @@
       </div>
     </article>
 
-    <!-- 11 -->
+    <!-- 13 — Hérouville Futsal -->
     <article class="card autres" data-cat="autres">
       <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Futsal_ball.jpg/640px-Futsal_ball.jpg" alt="Futsal Hérouville D2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Futsal_at_the_2018_Asian_Games.jpg/640px-Futsal_at_the_2018_Asian_Games.jpg" alt="Futsal Hérouville D2">
         <span class="card-sport-badge badge-futsal">D2</span>
       </div>
       <div class="card-body">
-        <div class="card-rubrique">Futsal · Division 2</div>
+        <div class="card-rubrique">Futsal · Division 2 · Ouest-France</div>
         <h2 class="card-titre">Hérouville bat Reims et croit encore à la montée</h2>
         <p class="card-extrait">Victoire précieuse du club hérouvillais face à Reims dans le choc de la Division 2 de futsal, qui relance leurs espoirs de montée.</p>
         <div class="card-footer">
@@ -471,14 +404,31 @@
       </div>
     </article>
 
-    <!-- 12 -->
+    <!-- 14 — AS Cherbourg R1 (début de saison, le plus ancien) -->
+    <article class="card foot" data-cat="foot">
+      <div class="card-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Cherbourg_en_Cotentin_-_Vue_a%C3%A9rienne.jpg/640px-Cherbourg_en_Cotentin_-_Vue_a%C3%A9rienne.jpg" alt="AS Cherbourg R1">
+        <span class="card-sport-badge badge-foot">R1</span>
+      </div>
+      <div class="card-body">
+        <div class="card-rubrique">Football · Régional 1 · Ouest-France</div>
+        <h2 class="card-titre">Olivier Liot : « C'est au-delà de nos attentes »</h2>
+        <p class="card-extrait">Le président de l'AS Cherbourg se confie sur le début de saison remarquable de son club en Régional 1, au-delà des espérances initiales.</p>
+        <div class="card-footer">
+          <span class="card-meta">AS Cherbourg</span>
+          <a href="https://www.ouest-france.fr/sport/football/cherbourg/r1-cest-au-dela-de-nos-attentes-olivier-liot-president-de-las-cherbourg-evoque-le-debut-de-saison-de-son-club-35480eaa-0e37-11f1-b929-abb85d5fd4cd" class="card-lire" target="_blank">Lire →</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Note : Thomas Loppy (hors saison, classé en dernier) -->
     <article class="card autres" data-cat="autres">
       <div class="card-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Handball_pictogram.svg/640px-Handball_pictogram.svg.png" alt="Thomas Loppy Cherbourg" style="background:#f3eef9; object-fit: contain; padding: 30px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Handball-WM-Qualifikation_AUT-BLR_089.jpg/640px-Handball-WM-Qualifikation_AUT-BLR_089.jpg" alt="Thomas Loppy Cherbourg" style="object-position: center 30%;">
         <span class="card-sport-badge badge-hand">Handball</span>
       </div>
       <div class="card-body">
-        <div class="card-rubrique">Handball · JS Cherbourg</div>
+        <div class="card-rubrique">Handball · JS Cherbourg · Ouest-France</div>
         <h2 class="card-titre">Thomas Loppy : « C'est une page qui se tourne »</h2>
         <p class="card-extrait">Rencontre avec Thomas Loppy, qui s'exprime pour la première fois sur son départ de la JS Cherbourg pour rejoindre Saran.</p>
         <div class="card-footer">
@@ -491,9 +441,13 @@
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="fermerImage()">
+  <img src="/mnt/user-data/uploads/Screenshot_20260607-155537.jpg" alt="Article presse N1M Caen HB">
+</div>
+
 <footer>
-  <strong>Mathieu Garcia</strong> — Étudiant-journaliste · Ouest-France · Normandie<br>
+  <strong>Mathieu Garcia</strong> — Étudiant Journalisme · Correspondant Sportif<br>
   <span style="margin-top:6px; display:inline-block; font-size:11px;">Portfolio journalistique · Saison 2024–2025</span>
 </footer>
 
@@ -501,7 +455,6 @@
   function filtrer(cat, btn) {
     document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('actif'));
     btn.classList.add('actif');
-
     const cards = document.querySelectorAll('.card');
     let visible = 0;
     cards.forEach(card => {
@@ -509,8 +462,6 @@
       card.classList.toggle('hidden', !match);
       if (match) visible++;
     });
-
-    const total = cards.length;
     const cpt = document.getElementById('compteur');
     if (cat === 'tous') {
       cpt.innerHTML = '<strong>' + visible + '</strong> articles publiés';
@@ -519,6 +470,18 @@
       cpt.innerHTML = '<strong>' + visible + '</strong> article' + (visible > 1 ? 's' : '') + ' — ' + label;
     }
   }
+
+  function ouvrirImage() {
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function fermerImage() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') fermerImage(); });
 
   filtrer('tous', document.querySelector('.filtre-btn.actif'));
 </script>
