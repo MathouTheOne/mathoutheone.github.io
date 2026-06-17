@@ -1,246 +1,385 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>MathouTheOne | Portfolio X</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Portfolio X — Mathieu Garcia, Journaliste</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0D1B2A; --ink-mid: #3D4F60; --ink-light: #8B97A4;
+    --rouge: #C8102E; --or: #F0A500; --surface: #FAFAF8;
+    --white: #FFFFFF; --border: #E2E5E9;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+  body { font-family: var(--font-sans); background: var(--surface); color: var(--ink); }
 
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-        }
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink); color: var(--white);
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center; padding: 0 40px; height: 64px;
+    border-bottom: 3px solid var(--rouge);
+  }
+  .masthead-left { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8B97A4; }
+  .masthead-logo { text-align: center; }
+  .masthead-logo .name { font-family: var(--font-serif); font-size: 22px; color: var(--white); }
+  .masthead-logo .role { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--or); margin-top: 1px; }
+  .masthead-right { text-align: right; font-size: 11px; color: #8B97A4; }
 
-        .header {
-            background: linear-gradient(90deg, #0a1f44, #1d3557);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
+  /* ── BANDEAU ÉDITION ── */
+  .edition-bar {
+    background: var(--rouge); color: var(--white);
+    display: flex; align-items: center; justify-content: center; gap: 32px;
+    padding: 8px 40px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+  }
+  .edition-bar span { opacity: 0.7; }
+  .edition-bar strong { opacity: 1; }
 
-        .header h1 {
-            margin: 0;
-            font-size: 32px;
-        }
+  /* ── FILTRES / ONGLETS ── */
+  .filtres-wrapper { max-width: 900px; margin: 36px auto 0; padding: 0 24px; }
+  .filtres-inner {
+    display: flex; align-items: center; gap: 4px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .filtres-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-light); margin-right: 12px; white-space: nowrap; }
+  .filtre-btn {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--font-sans); font-size: 13px; font-weight: 500;
+    color: var(--ink-mid); padding: 10px 18px;
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .filtre-btn:hover { color: var(--ink); }
+  .filtre-btn.actif { color: var(--rouge); border-bottom-color: var(--rouge); font-weight: 600; }
 
-        .header p {
-            margin-top: 10px;
-            opacity: 0.9;
-        }
+  /* ── COMPTEUR ── */
+  .compteur-wrapper { max-width: 900px; margin: 20px auto 0; padding: 0 24px; }
+  .compteur { font-size: 12px; color: var(--ink-light); }
+  .compteur strong { color: var(--ink); }
 
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-        }
+  /* ── CONTENU ONGLETS ── */
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
 
-        .tabs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
+  /* ── GRILLE TWEETS ── */
+  .tweets-wrapper { max-width: 900px; margin: 16px auto 0; padding: 0 24px 60px; }
 
-        .tab-button {
-            padding: 12px 22px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            background-color: #e0e0e0;
-            transition: 0.3s ease;
-        }
+  .tweet-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    margin-bottom: 24px;
+    transition: box-shadow 0.25s, transform 0.25s;
+    overflow: hidden;
+  }
+  .tweet-card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.10); transform: translateY(-2px); }
 
-        .tab-button.active {
-            background-color: #e63946;
-            color: white;
-        }
+  /* En-tête de carte */
+  .tweet-card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .tweet-type-badge {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 4px 10px; color: var(--white);
+  }
+  .badge-thread { background: var(--ink); }
+  .badge-analyse { background: #1d6a3e; }
 
-        .tab-button:hover {
-            background-color: #c1121f;
-            color: white;
-        }
+  .tweet-card-header-right { font-size: 11px; color: var(--ink-light); }
 
-        .tab-content {
-            display: none;
-        }
+  /* Corps de la carte : le tweet embed */
+  .tweet-card-body { padding: 16px 20px; }
+  .tweet-card-body .twitter-tweet {
+    margin: 0 auto !important;
+  }
 
-        .tab-content.active {
-            display: block;
-        }
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); color: #8B97A4;
+    text-align: center; padding: 32px; font-size: 12px;
+    letter-spacing: 0.05em; border-top: 3px solid var(--rouge);
+  }
+  footer strong { color: var(--white); }
 
-        .tweet-card {
-            background: white;
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .tweet-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #0a1f44;
-            color: white;
-            margin-top: 60px;
-            font-size: 14px;
-        }
-    </style>
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .masthead { grid-template-columns: 1fr; height: auto; padding: 16px 20px; text-align: center; gap: 4px; }
+    .masthead-left, .masthead-right { display: none; }
+  }
+  @media (max-width: 600px) {
+    .edition-bar { gap: 16px; flex-wrap: wrap; font-size: 10px; padding: 8px 16px; }
+  }
+</style>
 </head>
 <body>
 
-<div class="header">
-    <h1>⚽ Portfolio X</h1>
-    <p>Threads & Analyses — SM Caen</p>
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-left">Caen · Normandie</div>
+  <div class="masthead-logo">
+    <div class="name">Mathieu Garcia</div>
+    <div class="role">Portfolio journalistique</div>
+  </div>
+  <div class="masthead-right">Threads & Analyses · X</div>
+</header>
+
+<!-- BANDEAU -->
+<div class="edition-bar">
+  <span>Saison <strong>2024–2025</strong></span>
+  <span>·</span>
+  <span><strong>10</strong> threads · <strong>9</strong> analyses</span>
+  <span>·</span>
+  <span>SM Caen · Football · Sports</span>
 </div>
 
-<div class="container">
+<!-- FILTRES -->
+<div class="filtres-wrapper">
+  <div class="filtres-inner">
+    <span class="filtres-label">Voir</span>
+    <button class="filtre-btn actif" onclick="ouvrirOnglet('threads', this)">Threads</button>
+    <button class="filtre-btn" onclick="ouvrirOnglet('analyses', this)">Analyses</button>
+  </div>
+</div>
 
-    <div class="tabs">
-        <button class="tab-button active" onclick="openTab('thread', this)">🧵 THREADS</button>
-        <button class="tab-button" onclick="openTab('analyses', this)">📊 ANALYSES</button>
+<!-- COMPTEUR -->
+<div class="compteur-wrapper">
+  <p class="compteur" id="compteur"><strong>10</strong> threads publiés</p>
+</div>
+
+<!-- TWEETS WRAPPER -->
+<div class="tweets-wrapper">
+
+  <!-- ── THREADS ── -->
+  <div id="threads" class="tab-content active">
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-thread">🧵 Thread</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2065466576497750458"></a></blockquote>
+      </div>
     </div>
 
-    <!-- THREADS -->
-    <div id="thread" class="tab-content active">
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/2024386119102525824"></a>
-            </blockquote>
-        </div>
-
-        <!-- Nouveau 2e tweet -->
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/2018053342795120687"></a>
-            </blockquote>
-        </div>
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/2009262502480159094"></a>
-            </blockquote>
-        </div>
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/1960632512876605827"></a>
-            </blockquote>
-        </div>
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/2006314242522182065"></a>
-            </blockquote>
-        </div>
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/1913897344396833263"></a>
-            </blockquote>
-        </div>
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/1878496835716755612"></a>
-            </blockquote>
-        </div>
-
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-thread">🧵 Thread</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2065172863632433222"></a></blockquote>
+      </div>
     </div>
 
-    <!-- ANALYSES -->
-    <div id="analyses" class="tab-content">
-		
-		<div class="tweet-card">
-			<blockquote class="twitter-tweet">
-				<a href="https://twitter.com/i/status/2057504589226602814"></a>
-			</blockquote>
-        </div>
-		
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/2024949562725605861"></a>
-            </blockquote>
-        </div>
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/2022414962669609465"></a>
-            </blockquote>
-        </div>
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/2019896022223241423"></a>
-            </blockquote>
-        </div>
-
-        <!-- Nouveau 4e -->
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/2017340944236921302"></a>
-            </blockquote>
-        </div>
-
-        <!-- Nouveau 5e -->
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/2014824851211448613"></a>
-            </blockquote>
-        </div>
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/1981049290672992400"></a>
-            </blockquote>
-        </div>
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/1961731994494063021"></a>
-            </blockquote>
-        </div>
-
-        <div class="tweet-card">
-            <blockquote class="twitter-tweet">
-                <a href="https://twitter.com/i/status/1871550974072086590"></a>
-            </blockquote>
-        </div>
-
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-thread">🧵 Thread</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2062466938714870138"></a></blockquote>
+      </div>
     </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-thread">🧵 Thread</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2024386119102525824"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-thread">🧵 Thread</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2018053342795120687"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-thread">🧵 Thread</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2009262502480159094"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-thread">🧵 Thread</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/1960632512876605827"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-thread">🧵 Thread</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2006314242522182065"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-thread">🧵 Thread</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/1913897344396833263"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-thread">🧵 Thread</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/1878496835716755612"></a></blockquote>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── ANALYSES ── -->
+  <div id="analyses" class="tab-content">
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-analyse">📊 Analyse</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2057504589226602814"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-analyse">📊 Analyse</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2024949562725605861"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-analyse">📊 Analyse</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2022414962669609465"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-analyse">📊 Analyse</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2019896022223241423"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-analyse">📊 Analyse</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2017340944236921302"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-analyse">📊 Analyse</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/2014824851211448613"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-analyse">📊 Analyse</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/1981049290672992400"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-analyse">📊 Analyse</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/1961731994494063021"></a></blockquote>
+      </div>
+    </div>
+
+    <div class="tweet-card">
+      <div class="tweet-card-header">
+        <span class="tweet-type-badge badge-analyse">📊 Analyse</span>
+        <span class="tweet-card-header-right">SM Caen</span>
+      </div>
+      <div class="tweet-card-body">
+        <blockquote class="twitter-tweet"><a href="https://twitter.com/i/status/1871550974072086590"></a></blockquote>
+      </div>
+    </div>
+
+  </div>
 
 </div>
 
+<!-- FOOTER -->
 <footer>
-    © MathouTheOne — Portfolio Journalistique Sportif
+  <strong>Mathieu Garcia</strong> — Étudiant-journaliste · Correspondant sportif · Normandie<br>
+  <span style="margin-top:6px; display:inline-block; font-size:11px;">Portfolio journalistique · Saison 2024–2025</span>
 </footer>
 
 <script>
-    function openTab(tabId, element) {
-        document.querySelectorAll('.tab-content').forEach(tab => {
-            tab.classList.remove('active');
-        });
+  function ouvrirOnglet(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('actif'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('actif');
 
-        document.querySelectorAll('.tab-button').forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        document.getElementById(tabId).classList.add('active');
-        element.classList.add('active');
+    const cpt = document.getElementById('compteur');
+    if (id === 'threads') {
+      cpt.innerHTML = '<strong>10</strong> threads publiés';
+    } else {
+      cpt.innerHTML = '<strong>9</strong> analyses publiées';
     }
+  }
 </script>
 
 <script async src="https://platform.twitter.com/widgets.js"></script>
 
 </body>
-</html>
+</html> 
