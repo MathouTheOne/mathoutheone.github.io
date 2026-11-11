@@ -58,7 +58,7 @@
   .card-sport-badge { position: absolute; bottom: 10px; left: 10px; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; color: var(--white); }
   .badge-foot { background: #1a3a5c; } .badge-basket { background: #8B4513; }
   .badge-hand { background: #2d6a4f; } .badge-badminton { background: #5a189a; }
-  .badge-futsal { background: #0077b6; }
+  .badge-futsal { background: #0077b6; } .badge-rugby { background: #7a1f2b; }
   .card-body { padding: 18px 20px; flex: 1; display: flex; flex-direction: column; }
   .card-rubrique { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rouge); margin-bottom: 8px; }
   .card-titre { font-family: var(--font-serif); font-size: 17px; line-height: 1.35; margin-bottom: 8px; }
@@ -101,27 +101,27 @@
 <div class="edition-bar">
   <span>Depuis <strong>2026</strong></span>
   <span>·</span>
-  <span><strong>21</strong> articles publiés</span>
+  <span><strong>24</strong> articles publiés</span>
   <span>·</span>
-  <span>Football · Badminton · Basket · Handball · Futsal</span>
+  <span>Football · Rugby · Badminton · Basket · Handball · Futsal</span>
 </div>
 
-<!-- UNE : AG Caen R1 (dernier article publié) -->
+<!-- UNE : SM Caen D3F vs Saint-Maur (dernier article publié) -->
 <div class="une-wrapper">
   <div class="une">
     <div class="une-visual">
-      <img src="Img/R1 AG Caen MOS.jpg" alt="AG Caen R1 vs La Maladrerie">
+      <img src="Img/D3F SMC ST MAUR.jpg" alt="SM Caen D3F vs Saint-Maur">
       <div class="une-badge">A la une</div>
     </div>
     <div class="une-body">
       <div>
-        <div class="une-rubrique">Football · Regional 1 · Ouest-France</div>
-        <h1 class="une-titre">L'AG Caen domine La Maladrerie et fait le plein de confiance avant de defier Malherbe en Coupe</h1>
-        <p class="une-extrait">L'AG Caen reste invaincu cette saison après sa victoire face a La Maladrerie (2-0) en Regional 1. Ils abordent au mieux leur prochaine écheance en Coupe de France face au SM Caen.</p>
+        <div class="une-rubrique">Football · D3F · Ouest-France</div>
+        <h1 class="une-titre">Solide, le SM Caen s'impose face a Saint-Maur</h1>
+        <p class="une-extrait">Les Caennaises signent une victoire solide face a Saint-Maur en D3F Feminine.</p>
       </div>
       <div class="une-footer">
-        <div class="une-meta">Derniere parution · AG Caen</div>
-        <a href="https://www.ouest-france.fr/sport/football/football-regional-1-lag-caen-domine-la-maladrerie-et-fait-le-plein-de-confiance-avant-de-defier-malherbe-en-coupe-a1ae6398-bf6a-11f1-aef6-9f33a81faeff" class="btn-lire" target="_blank">
+        <div class="une-meta">Derniere parution · SM Caen</div>
+        <a href="https://www.ouest-france.fr/sport/football/sm-caen/football-d3f-solide-caen-gagne-face-a-saint-maur-06a15bae-db93-11f1-a04a-6776b5256c5b" class="btn-lire" target="_blank">
           Lire l'article
           <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6h8M6 2l4 4-4 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -143,6 +143,57 @@
 
 <div class="grille-wrapper">
   <div class="grille" id="grille">
+
+    <!-- A — SM Caen D3F vs Saint-Maur (dernier article publié) -->
+    <article class="card foot" data-cat="foot">
+      <div class="card-img">
+        <img src="Img/D3F SMC ST MAUR.jpg" alt="SM Caen D3F vs Saint-Maur">
+        <span class="card-sport-badge badge-foot">D3F</span>
+      </div>
+      <div class="card-body">
+        <div class="card-rubrique">Football · D3F · Ouest-France</div>
+        <h2 class="card-titre">Solide, le SM Caen s'impose face a Saint-Maur</h2>
+        <p class="card-extrait">Les Caennaises signent une victoire solide face a Saint-Maur en D3F Feminine.</p>
+        <div class="card-footer">
+          <span class="card-meta">SM Caen</span>
+          <a href="https://www.ouest-france.fr/sport/football/sm-caen/football-d3f-solide-caen-gagne-face-a-saint-maur-06a15bae-db93-11f1-a04a-6776b5256c5b" class="card-lire" target="_blank">Lire &#8594;</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- B — Stade Caennais Rugby Fédérale 2 -->
+    <article class="card autres" data-cat="autres">
+      <div class="card-img">
+        <img src="Img/Rugby Stade Caennais .jpg" alt="Stade Caennais Rugby Federale 2">
+        <span class="card-sport-badge badge-rugby">Federale 2</span>
+      </div>
+      <div class="card-body">
+        <div class="card-rubrique">Rugby · Federale 2 · Ouest-France</div>
+        <h2 class="card-titre">« Cette victoire fait beaucoup de bien » : Caen s'impose au bout du suspense face a Montesson</h2>
+        <p class="card-extrait">Le Stade Caennais s'impose au bout du suspense face a Montesson en Federale 2, une victoire qui fait du bien au groupe.</p>
+        <div class="card-footer">
+          <span class="card-meta">Stade Caennais</span>
+          <a href="https://www.ouest-france.fr/sport/rugby/stade-caennais/rugby-federale-2-cette-victoire-fait-beaucoup-de-bien-caen-simpose-au-bout-du-suspense-face-a-montesson-cfd25cd8-d096-11f1-897b-b13214c912e2" class="card-lire" target="_blank">Lire &#8594;</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- C — Colombelles Palaiseau N1F -->
+    <article class="card autres" data-cat="autres">
+      <div class="card-img">
+        <img src="Img/CL_Colombelles_Palaiseau.jpg" alt="Colombelles Palaiseau N1F">
+        <span class="card-sport-badge badge-hand">N1F</span>
+      </div>
+      <div class="card-body">
+        <div class="card-rubrique">Handball · N1F · Ouest-France</div>
+        <h2 class="card-titre">Colombelles s'incline logiquement face a Palaiseau</h2>
+        <p class="card-extrait">Colombelles s'incline logiquement face a Palaiseau en Nationale 1 Feminine.</p>
+        <div class="card-footer">
+          <span class="card-meta">Colombelles HB</span>
+          <a href="https://www.ouest-france.fr/sport/handball/colombelles-troarn/handball-n1f-colombelles-sincline-logiquement-face-a-palaiseau-c913dc1c-c4ef-11f1-b3a8-1120a69ac78a" class="card-lire" target="_blank">Lire &#8594;</a>
+        </div>
+      </div>
+    </article>
 
     <!-- 1 — AG Caen R1 (dernier article publié) -->
     <article class="card foot" data-cat="foot">
@@ -551,4 +602,4 @@
 </script>
 
 </body>
-</html>
+</html> 
